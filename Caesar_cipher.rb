@@ -1,20 +1,19 @@
-#Iteración 1
+# Iteración 1
 
-#Devuelve el input cambiando cada una de sus letras por su anterior en el abecedario
-#ej: "bcd" -> "abc"
+# Devuelve el input cambiando cada una de sus letras por su anterior en el abecedario
+# ej: "bcd" -> "abc"
 def solve_cipher(input)
 
 	shift = -1
 
+	#Separamos cada valor del String y lo guardamos como Array
 	array_split_codigo_secreto = input.split("")
 
-    # var array2 = array.map( function(x) { return x+2; } );
-    #     array2 = array.map { |x| x+2 }
-
+	#Lo pasamos cada letra a número ASCII y le añadimos el turno
 	array_integer_codigo_secreto =
 	  array_split_codigo_secreto.map { |chr| chr.ord + shift }
 
-	
+	#Limpiamos los casos que quedan fuera de letra A y Z
 	result = ""
 
 	array_integer_codigo_secreto.each do |num|
@@ -43,10 +42,3 @@ end
 decoded = solve_cipher("ifmmp")
 
 puts decoded
-
-
-
-
-array = [1,2,3]
-
-array.map { |valor| valor*2 }
