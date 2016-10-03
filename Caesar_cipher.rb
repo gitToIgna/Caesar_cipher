@@ -1,17 +1,25 @@
 #Iteración 1
 
+#Devuelve el input cambiando cada una de sus letras por su anterior en el abecedario
+#ej: "bcd" -> "abc"
 def solve_cipher(input)
 
 	shift = -1
 
 	array_split_codigo_secreto = input.split("")
 
-	array_integer_codigo_secreto = array_split_codigo_secreto.collect { |chr| chr.ord + shift }
+    # var array2 = array.map( function(x) { return x+2; } );
+    #     array2 = array.map { |x| x+2 }
 
-	temp_num = 0
-	final_num = ""
+	array_integer_codigo_secreto =
+	  array_split_codigo_secreto.map { |chr| chr.ord + shift }
+
+	
+	result = ""
 
 	array_integer_codigo_secreto.each do |num|
+
+		temp_num = 0
 
 		if num < 97
 			temp_num = temp_num + (num + 26)
@@ -24,12 +32,21 @@ def solve_cipher(input)
 
 		end
 
-		final_num = final_num + (temp_num.chr)
+		result = result + (temp_num.chr)
 
 	end
 
-	puts final_num
+	return result
 	
 end
 
-solve_cipher("ifmmp")
+decoded = solve_cipher("ifmmp")
+
+puts decoded
+
+
+
+
+array = [1,2,3]
+
+array.map { |valor| valor*2 }
